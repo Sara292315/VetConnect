@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VetConnect — Citas y expediente para tu mascota</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header>
+  <div class="nav-inner">
+    <a href="#inicio" class="brand">Vet<span>Connect</span></a>
+    <nav aria-label="Navegación principal">
+      <ul>
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#servicios">Servicios</a></li>
+        <li><a href="#citas">Citas</a></li>
+        <li><a href="#expediente">Expediente</a></li>
+        <li><a href="#veterinaria">Veterinaria</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+        <li><a href="#terminos">Términos</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-text">
+      <p class="eyebrow" style="color:var(--gold);">Veterinarias locales, un solo lugar</p>
+      <h1>Citas y expediente de tu mascota, sin llamadas ni WhatsApp</h1>
+      <p>VetConnect centraliza los servicios, horarios y el historial de atención de tu mascota, para que agendar una cita tome un minuto.</p>
+      <a href="#citas" class="btn">Solicitar una cita</a>
+      <a href="#servicios" class="btn btn-outline">Ver servicios</a>
+    </div>
+    <div class="hero-img">
+      <img src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?w=700&q=80" alt="Veterinaria revisando a un perro en consultorio">
+    </div>
+  </div>
+</div>
+
+<main>
+
+  <section id="servicios" aria-labelledby="servicios-h">
+    <p class="eyebrow">Qué ofrecemos</p>
+    <div class="section-head">
+      <h2 id="servicios-h">Servicios veterinarios disponibles</h2>
+      <p>Consulta los servicios que puedes solicitar directamente desde la plataforma.</p>
+    </div>
+    <div class="servicios-grid">
+      <article class="servicio-card">
+        <h3>Consulta general</h3>
+        <p>Revisión completa del estado de salud de tu mascota, con recomendaciones del veterinario.</p>
+        <span class="precio">Desde $45.000</span>
+      </article>
+      <article class="servicio-card">
+        <h3>Vacunación</h3>
+        <p>Aplicación de vacunas según el esquema recomendado por edad y especie.</p>
+        <span class="precio">Desde $60.000</span>
+      </article>
+      <article class="servicio-card">
+        <h3>Desparasitación</h3>
+        <p>Tratamiento interno y externo para prevenir parásitos comunes.</p>
+        <span class="precio">Desde $35.000</span>
+      </article>
+      <article class="servicio-card">
+        <h3>Consulta preventiva</h3>
+        <p>Chequeo periódico para detectar problemas antes de que se conviertan en urgencias.</p>
+        <span class="precio">Desde $40.000</span>
+      </article>
+      <article class="servicio-card">
+        <h3>Control veterinario</h3>
+        <p>Seguimiento de tratamientos en curso o de mascotas en recuperación.</p>
+        <span class="precio">Desde $30.000</span>
+      </article>
+      <article class="servicio-card">
+        <h3>Atención básica</h3>
+        <p>Curaciones menores, corte de uñas, limpieza de oídos y cuidados generales.</p>
+        <span class="precio">Desde $25.000</span>
+      </article>
+    </div>
+  </section>
+
+  <section id="citas" aria-labelledby="citas-h">
+    <p class="eyebrow">Agenda en línea</p>
+    <div class="section-head">
+      <h2 id="citas-h">Solicitar una cita</h2>
+      <p>Completa el formulario con los datos del propietario, la mascota y el servicio que necesitas. La veterinaria confirmará la disponibilidad por correo o teléfono.</p>
+    </div>
+
+    <form id="form-citas" novalidate>
+      <h3>Datos del propietario</h3>
+      <div class="field">
+        <label for="nombre">Nombre completo <span class="req">*</span></label>
+        <input type="text" id="nombre" name="nombre" placeholder="Ej. Sarah Morgensztern" required>
+      </div>
+      <div class="field">
+        <label for="correo">Correo electrónico <span class="req">*</span></label>
+        <input type="email" id="correo" name="correo" placeholder="tucorreo@ejemplo.com" required>
+      </div>
+      <div class="field">
+        <label for="telefono">Número de teléfono <span class="req">*</span></label>
+        <input type="tel" id="telefono" name="telefono" pattern="[0-9 +]{7,15}" placeholder="300 123 4567" required>
+      </div>
+      <div class="field">
+        <label for="canal">Canal de contacto preferido</label>
+        <select id="canal" name="canal">
+          <option value="correo">Correo electrónico</option>
+          <option value="telefono">Llamada telefónica</option>
+          <option value="whatsapp">WhatsApp</option>
+        </select>
+      </div>
+
+      <h3>Datos de la mascota</h3>
+      <div class="field">
+        <label for="mascota-nombre">Nombre de la mascota <span class="req">*</span></label>
+        <input type="text" id="mascota-nombre" name="mascota-nombre" required>
+      </div>
+      <div class="field">
+        <label for="especie">Especie</label>
+        <select id="especie" name="especie">
+          <option value="perro">Perro</option>
+          <option value="gato">Gato</option>
+          <option value="ave">Ave</option>
+          <option value="otro">Otra</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="raza">Raza</label>
+        <input type="text" id="raza" name="raza" placeholder="Ej. Criollo, Labrador...">
+      </div>
+      <div class="field">
+        <label for="edad">Edad (años)</label>
+        <div class="range-wrap">
+          <input type="range" id="edad" name="edad" min="0" max="20" value="2">
+          <output id="edad-out" for="edad">2</output>
+        </div>
+      </div>
+      <div class="field full">
+        <fieldset>
+          <legend>Sexo</legend>
+          <div class="radio-row">
+            <label><input type="radio" name="sexo" value="hembra" checked> Hembra</label>
+            <label><input type="radio" name="sexo" value="macho"> Macho</label>
+          </div>
+        </fieldset>
+      </div>
+
+      <h3>Datos de la cita</h3>
+      <div class="field">
+        <label for="servicio">Servicio que desea solicitar</label>
+        <select id="servicio" name="servicio" required>
+          <option value="">Selecciona un servicio</option>
+          <option value="consulta-general">Consulta general</option>
+          <option value="vacunacion">Vacunación</option>
+          <option value="desparasitacion">Desparasitación</option>
+          <option value="consulta-preventiva">Consulta preventiva</option>
+          <option value="control">Control veterinario</option>
+          <option value="basica">Atención básica</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="fecha">Fecha</label>
+        <input type="date" id="fecha" name="fecha" required>
+      </div>
+      <div class="field">
+        <label for="hora">Hora</label>
+        <input type="time" id="hora" name="hora" min="08:00" max="18:00" required>
+      </div>
+      <div class="field">
+        <fieldset>
+          <legend>Recordatorios</legend>
+          <div class="check-row">
+            <label><input type="checkbox" name="recordatorio" value="correo" checked> Por correo</label>
+            <label><input type="checkbox" name="recordatorio" value="sms"> Por SMS</label>
+          </div>
+        </fieldset>
+      </div>
+      <div class="field full">
+        <label for="motivo">Motivo de la consulta</label>
+        <textarea id="motivo" name="motivo" rows="3" placeholder="Describe brevemente el motivo de la visita"></textarea>
+      </div>
+      <div class="field full">
+        <label for="observaciones">Observaciones adicionales</label>
+        <textarea id="observaciones" name="observaciones" rows="2" placeholder="Alergias, comportamiento, tratamientos previos..."></textarea>
+      </div>
+
+      <div class="form-actions">
+        <button type="submit" class="btn">Enviar solicitud</button>
+        <button type="reset" class="btn btn-outline" style="color:var(--pine-dark);border-color:var(--pine-dark);">Limpiar formulario</button>
+        <span class="nota">* Campos obligatorios</span>
+      </div>
+    </form>
+  </section>
+
+  <section id="expediente" aria-labelledby="expediente-h">
+    <p class="eyebrow">Historial de atención</p>
+    <div class="section-head">
+      <h2 id="expediente-h">Expediente de la mascota</h2>
+      <p>Ejemplo de cómo se vería el expediente de una mascota registrada, con su información básica y su historial de citas.</p>
+    </div>
+
+    <div class="mascota-card">
+      <img src="https://images.unsplash.com/photo-1517849845537-4d257902861a?w=300&q=80" alt="Fotografía de Toby, perro criollo">
+      <div>
+        <h3 style="margin-bottom:4px;">Toby <span class="badge">Activo</span></h3>
+        <p style="margin:0;font-size:.92rem;color:#4b463d;">Perro · Criollo · 3 años · Macho · Propietario: Sarah Morgensztern</p>
+      </div>
+    </div>
+
+    <table>
+      <caption>Historial de citas de Toby</caption>
+      <thead>
+        <tr>
+          <th scope="col">Fecha</th>
+          <th scope="col">Servicio</th>
+          <th scope="col">Veterinario</th>
+          <th scope="col">Estado</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>12 mar 2026</td>
+          <td>Vacunación</td>
+          <td>Dr. Andrés Rojas</td>
+          <td>Completada</td>
+        </tr>
+        <tr>
+          <td>28 may 2026</td>
+          <td>Desparasitación</td>
+          <td>Dra. Laura Peña</td>
+          <td>Completada</td>
+        </tr>
+        <tr>
+          <td>15 ago 2026</td>
+          <td>Consulta preventiva</td>
+          <td>Dr. Andrés Rojas</td>
+          <td>Completada</td>
+        </tr>
+        <tr>
+          <td>03 oct 2026</td>
+          <td>Control veterinario</td>
+          <td>Dra. Laura Peña</td>
+          <td>Programada</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="veterinaria" aria-labelledby="veterinaria-h">
+    <p class="eyebrow">Sobre el establecimiento</p>
+    <div class="section-head">
+      <h2 id="veterinaria-h">La veterinaria</h2>
+      <p>Información general de la veterinaria asociada a esta plataforma.</p>
+    </div>
+    <div class="vet-grid">
+      <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=700&q=80" alt="Fachada de una clínica veterinaria">
+      <div>
+        <ul class="info-list">
+          <li><b>Nombre</b> Veterinaria San Rafael</li>
+          <li><b>Dirección</b> Av. 4 con Calle 12, Cúcuta, Norte de Santander</li>
+          <li><b>Teléfono</b> (607) 555 4021</li>
+          <li><b>Correo</b> contacto@vetsanrafael.com</li>
+          <li><b>Horario</b> Lunes a sábado, 8:00 a.m. – 6:00 p.m.</li>
+          <li><b>Urgencias</b> Domingos y festivos, 9:00 a.m. – 1:00 p.m.</li>
+        </ul>
+        <p style="margin-top:18px;font-size:.9rem;color:#4b463d;">
+          Recomendación básica: mantén al día el esquema de vacunación y desparasitación de tu mascota; consulta el expediente para ver la fecha de la próxima dosis.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contacto" aria-labelledby="contacto-h">
+    <p class="eyebrow">Hablemos</p>
+    <div class="section-head">
+      <h2 id="contacto-h">Contacto</h2>
+      <p>Medios disponibles para comunicarte directamente con la veterinaria.</p>
+    </div>
+    <div class="contacto-grid">
+      <ul class="info-list">
+        <li><b>Teléfono</b> (607) 555 4021</li>
+        <li><b>WhatsApp</b> 300 123 4567</li>
+        <li><b>Correo</b> contacto@vetsanrafael.com</li>
+        <li><b>Ubicación</b> <a href="https://maps.google.com/?q=Cúcuta+Norte+de+Santander" target="_blank" rel="noopener">Ver en el mapa</a></li>
+      </ul>
+      <form id="form-contacto" style="grid-template-columns:1fr;padding:24px;">
+        <div class="field">
+          <label for="c-nombre">Nombre</label>
+          <input type="text" id="c-nombre" name="c-nombre">
+        </div>
+        <div class="field">
+          <label for="c-correo">Correo electrónico</label>
+          <input type="email" id="c-correo" name="c-correo">
+        </div>
+        <div class="field">
+          <label for="c-mensaje">Mensaje</label>
+          <textarea id="c-mensaje" name="c-mensaje" rows="3"></textarea>
+        </div>
+        <div class="form-actions">
+          <button type="submit" class="btn">Enviar mensaje</button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <section id="terminos" aria-labelledby="terminos-h">
+    <p class="eyebrow">Antes de continuar</p>
+    <div class="section-head">
+      <h2 id="terminos-h">Términos y condiciones de uso</h2>
+      <p>Condiciones generales para el uso de esta plataforma académica.</p>
+    </div>
+    <ol>
+      <li>VetConnect es un prototipo académico desarrollado con fines educativos; la información mostrada es de carácter ilustrativo.</li>
+      <li>Los datos ingresados en los formularios (propietario, mascota y cita) se utilizan únicamente para organizar la solicitud dentro de la plataforma.</li>
+      <li>La veterinaria es responsable de confirmar la disponibilidad real de horarios; la solicitud enviada no garantiza la cita hasta recibir confirmación.</li>
+      <li>El usuario se compromete a proporcionar información veraz sobre sí mismo y sobre su mascota.</li>
+      <li>La plataforma podrá evolucionar hacia una versión funcional completa, momento en el cual estos términos podrán actualizarse.</li>
+    </ol>
+  </section>
+
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <span>© 2026 VetConnect — Proyecto académico, Fundación de Estudios Superiores Comfanorte</span>
+    <span><a href="https://github.com/Sara292315/VetConnect.git" target="_blank" rel="noopener">Repositorio en GitHub</a></span>
+  </div>
+</footer>
+
+<script src="js/script.js"></script>
+
+</body>
+</html>
