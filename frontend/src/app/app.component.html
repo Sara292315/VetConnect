@@ -1,0 +1,15 @@
+<!-- Estructura HTML5 del componente raíz.
+     <app-navbar>  -> barra de navegación
+     <router-outlet> -> sección que cambia según la ruta activa
+     <app-footer>  -> pie de página
+-->
+<div class="app-shell">
+  <app-navbar></app-navbar>
+
+  <!-- Contenido principal -->
+  <main>
+    <router-outlet></router-outlet>
+  </main>
+
+  <app-footer></app-footer>
+</div>

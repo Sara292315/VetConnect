@@ -1,0 +1,57 @@
+/* Tarjeta de servicio del catálogo. */
+.tarjeta-servicio {
+  background: var(--color-blanco, #ffffff);
+  border: 1px solid var(--color-verde-claro, #d8f3ee);
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 14px rgba(14, 59, 90, 0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.tarjeta-servicio:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px rgba(14, 59, 90, 0.10);
+}
+
+.tarjeta-servicio__icono {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: var(--color-verde-claro, #d8f3ee);
+  color: var(--color-verde, #17a88f);
+  font-size: 1.6rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.2rem;
+}
+
+.tarjeta-servicio__nombre {
+  font-size: 1.15rem;
+  color: var(--color-azul, #0e3b5a);
+  margin: 0;
+}
+
+.tarjeta-servicio__descripcion {
+  font-size: 0.94rem;
+  color: var(--color-texto, #34495e);
+  line-height: 1.5;
+  margin: 0;
+  flex: 1;
+}
+
+.tarjeta-servicio__datos {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 0.4rem 0;
+  font-size: 0.85rem;
+  color: #5d7d95;
+}
+
+.tarjeta-servicio__datos li {
+  margin-bottom: 0.15rem;
+}

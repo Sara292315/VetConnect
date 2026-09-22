@@ -1,0 +1,27 @@
+/* Estilos de la página de términos y condiciones. */
+
+.contenedor--texto {
+  max-width: 820px;
+  margin: 0 auto;
+}
+
+article h2 {
+  color: var(--color-azul, #0e3b5a);
+  font-size: 1.25rem;
+  margin: 1.6rem 0 0.5rem 0;
+}
+
+article p {
+  color: var(--color-texto, #34495e);
+  line-height: 1.7;
+}
+
+article ol {
+  line-height: 1.9;
+  color: var(--color-texto, #34495e);
+  padding-left: 1.4rem;
+}
+
+article ol li {
+  margin-bottom: 0.3rem;
+}

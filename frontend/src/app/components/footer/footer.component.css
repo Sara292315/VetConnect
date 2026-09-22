@@ -1,0 +1,81 @@
+/* ---------------------------------------------------------------------------
+   Pie de página de VetConnect
+--------------------------------------------------------------------------- */
+.pie {
+  background: var(--color-azul, #0e3b5a);
+  color: rgba(255, 255, 255, 0.88);
+  margin-top: 3rem;
+}
+
+.pie__contenedor {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 1.5rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.pie__titulo {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 0.8rem;
+}
+
+.pie__descripcion {
+  font-size: 0.92rem;
+  line-height: 1.6;
+}
+
+.pie__lista {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.pie__lista li {
+  margin-bottom: 0.45rem;
+}
+
+.pie__lista a,
+.pie__barra a {
+  color: rgba(255, 255, 255, 0.88);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.pie__lista a:hover,
+.pie__barra a:hover {
+  color: var(--color-verde-claro, #d8f3ee);
+}
+
+.pie__contacto p {
+  margin: 0 0 0.3rem 0;
+  font-style: normal;
+  font-size: 0.92rem;
+}
+
+.pie__barra {
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 1rem 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  font-size: 0.85rem;
+}
+
+.pie__barra p {
+  margin: 0;
+}
+
+/* ------------------------- Vista móvil -------------------------------- */
+@media (max-width: 760px) {
+  .pie__contenedor {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}

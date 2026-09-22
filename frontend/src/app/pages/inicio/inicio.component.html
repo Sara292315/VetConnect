@@ -1,0 +1,155 @@
+<!-- ==========================================================================
+     REQUISITOS HTML5 DEMOSTRADOS EN ESTA PÁGINA:
+     - Encabezados <h1>, <h2> y <h3>
+     - Párrafos <p>
+     - Listas ordenadas <ol> y desordenadas <ul>
+     - Imágenes con atributo alt
+     - Secciones semánticas: <header>, <section>, <article>, <aside>
+     ========================================================================== -->
+
+<!-- Encabezado de la página de inicio (hero) -->
+<header class="hero">
+  <div class="contenedor hero__grid">
+
+    <!-- Columna de texto -->
+    <div class="hero__texto">
+      <p class="hero__aviso">Cuidado veterinario local y cercano</p>
+      <h1 class="hero__titulo">
+        Tu mascota merece los mejores cuidados.
+        <span>VetConnect te ayuda a organizarlos.</span>
+      </h1>
+      <p class="hero__descripcion">
+        Solicita citas en línea, consulta servicios y revisa el expediente de
+        tus mascotas desde <strong>una sola plataforma</strong>. Diseñada para
+        veterinarias locales y familias que aman a sus animales.
+      </p>
+
+      <div class="hero__acciones">
+        <a routerLink="/citas" class="boton boton--primario">
+          Solicitar una cita
+        </a>
+        <a routerLink="/servicios" class="boton boton--claro">
+          Ver servicios
+        </a>
+      </div>
+    </div>
+
+    <!-- Columna de imagen -->
+    <figure class="hero__imagen">
+      <img
+        src="assets/images/perro-veterinario.svg"
+        alt="Veterinario revisando a un perro en la consulta de VetConnect"
+      />
+    </figure>
+
+  </div>
+</header>
+
+<!-- Sección: ¿Qué es VetConnect? -->
+<section class="seccion">
+  <div class="contenedor">
+    <h2 class="seccion__titulo">¿Qué es VetConnect?</h2>
+    <p class="seccion__intro">
+      VetConnect es una plataforma web que centraliza las citas y la información
+      básica de las mascotas de veterinarias locales, facilitando la comunicación
+      entre propietarios y veterinarios.
+    </p>
+
+    <div class="rejilla rejilla--3">
+      <!-- Cada beneficio se presenta como un <article> -->
+      <article class="beneficio">
+        <h3>Organiza tus citas</h3>
+        <p>Solicita y consulta citas en línea, sin llamadas ni agendas físicas.</p>
+      </article>
+
+      <article class="beneficio">
+        <h3>Expediente centralizado</h3>
+        <p>Historial de consultas, vacunas y próximas citas de cada mascota.</p>
+      </article>
+
+      <article class="beneficio">
+        <h3>Siempre informado</h3>
+        <p>Conoce servicios, horarios y avisos importantes de tu veterinaria.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- Sección: Servicios destacados -->
+<section class="seccion seccion--fondo">
+  <div class="contenedor">
+    <h2 class="seccion__titulo">Nuestros servicios</h2>
+    <p class="seccion__intro">
+      Una selección de los servicios que ofrecemos. Consulta el catálogo completo
+      en la sección de <a routerLink="/servicios">Servicios</a>.
+    </p>
+
+    <div class="rejilla rejilla--3">
+      <app-service-card *ngFor="let servicio of serviciosDestacados" [servicio]="servicio"></app-service-card>
+    </div>
+
+    <p class="centrado mt-2">
+      <a routerLink="/servicios" class="boton boton--secundario">Ver todos los servicios</a>
+    </p>
+  </div>
+</section>
+
+<!-- Sección: Información de la veterinaria -->
+<section class="seccion">
+  <div class="contenedor">
+    <h2 class="seccion__titulo">Información de la veterinaria</h2>
+
+    <div class="informativa rejilla rejilla--2">
+      <article>
+        <h3>Horarios de atención</h3>
+        <!-- Lista ordenada: horarios de la semana -->
+        <ol class="lista-horarios">
+          <li *ngFor="let h of horarios">{{ h.dia }}: <strong>{{ h.horas }}</strong></li>
+        </ol>
+      </article>
+
+      <article>
+        <h3>Cómo funciona VetConnect</h3>
+        <!-- Lista desordenada: pasos de uso -->
+        <ul class="lista-pasos">
+          <li>Registra los datos de tu mascota.</li>
+          <li>Selecciona el servicio que necesita.</li>
+          <li>Elige fecha y hora disponibles.</li>
+          <li>Asiste a tu cita y sigue su expediente.</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- Sección con información lateral (aside) para datos de ejemplo -->
+<section class="seccion seccion--fondo">
+  <div class="contenedor rejilla rejilla--2 rejilla--lateral">
+    <div>
+      <h2 class="seccion__titulo">La salud de tu mascota, en un solo lugar</h2>
+      <p>
+        Con el <strong>expediente digital</strong> podrás consultar el historial de
+        consultas, las vacunas aplicadas y las próximas citas programadas de cada
+        mascota, sin importar si es perro, gato u otra especie.
+      </p>
+      <figure class="imagen-flotante">
+        <img
+          src="assets/images/gato.svg"
+          alt="Gato bajo el cuidado de VetConnect durante una consulta veterinaria"
+        />
+      </figure>
+    </div>
+
+    <!-- Elemento aside: dato informativo complementario -->
+    <aside class="tarjeta-lateral">
+      <h3>¿Sabías que…?</h3>
+      <p>
+        Llevar un registro de las vacunas y consultas ayuda a detectar a tiempo
+        problemas de salud en las mascotas.
+      </p>
+      <a routerLink="/expediente" class="boton boton--secundario boton--sm">
+        Ver expediente de ejemplo
+      </a>
+    </aside>
+  </div>
+</section>

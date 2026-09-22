@@ -1,0 +1,96 @@
+/* Estilos de la página de contacto. */
+
+.rejilla--contacto {
+  align-items: start;
+}
+
+.tarjeta-contacto {
+  font-style: normal;
+  background: var(--color-azul, #0e3b5a);
+  color: rgba(255, 255, 255, 0.9);
+  border-radius: 14px;
+  padding: 1.2rem 1.4rem;
+  line-height: 1.9;
+}
+
+.tarjeta-contacto strong {
+  color: var(--color-verde-claro, #d8f3ee);
+}
+
+.aviso-exito {
+  background: #e8f8f2;
+  border: 1.5px solid var(--color-verde, #17a88f);
+  border-left-width: 6px;
+  border-radius: 12px;
+  padding: 0.9rem 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.aviso-exito p {
+  margin: 0;
+  color: var(--color-texto, #34495e);
+}
+
+/* Formulario de contacto */
+.formulario-contacto {
+  display: grid;
+  gap: 1rem;
+  background: var(--color-blanco, #ffffff);
+  border: 1px solid var(--color-verde-claro, #d8f3ee);
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 14px rgba(14, 59, 90, 0.05);
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.campo label {
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--color-azul, #0e3b5a);
+}
+
+.campo input,
+.campo textarea {
+  width: 100%;
+  padding: 0.65rem 0.85rem;
+  border: 1.5px solid #cfe4df;
+  border-radius: 10px;
+  background: #f8fcfb;
+  font-family: inherit;
+  font-size: 0.95rem;
+  color: var(--color-texto, #34495e);
+}
+
+.campo input:focus,
+.campo textarea:focus {
+  outline: none;
+  border-color: var(--color-verde, #17a88f);
+  box-shadow: 0 0 0 3px rgba(23, 168, 143, 0.15);
+}
+
+.campo textarea {
+  resize: vertical;
+}
+
+.formulario-contacto__acciones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+.obligatorio {
+  color: #e74c3c;
+  font-weight: 800;
+}
+
+/* ------------------------- Vista móvil -------------------------------- */
+@media (max-width: 760px) {
+  .rejilla--2 {
+    grid-template-columns: 1fr;
+  }
+}

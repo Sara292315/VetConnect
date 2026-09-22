@@ -1,0 +1,45 @@
+<!-- REQUISITO HTML5: <footer> con contenido de la veterinaria. -->
+<footer class="pie">
+  <div class="pie__contenedor">
+
+    <!-- Columna 1: identidad -->
+    <div class="pie__columna">
+      <h3 class="pie__titulo">VetConnect</h3>
+      <p class="pie__descripcion">
+        Plataforma de citas y expediente para veterinarias locales.
+        Cuidamos la salud de tu mascota y simplificamos la gestión de tu veterinaria.
+      </p>
+    </div>
+
+    <!-- Columna 2: enlaces rápidos -->
+    <div class="pie__columna">
+      <h3 class="pie__titulo">Enlaces</h3>
+      <ul class="pie__lista">
+        <li><a routerLink="/">Inicio</a></li>
+        <li><a routerLink="/servicios">Servicios</a></li>
+        <li><a routerLink="/citas">Solicitar una cita</a></li>
+        <li><a routerLink="/expediente">Expediente de mi mascota</a></li>
+        <li><a routerLink="/veterinaria">Veterinaria</a></li>
+      </ul>
+    </div>
+
+    <!-- Columna 3: información de contacto -->
+    <div class="pie__columna">
+      <h3 class="pie__titulo">Contacto</h3>
+      <address class="pie__contacto">
+        <p>Av. de los Animales 123, Col. Centro</p>
+        <p>Tel: (555) 020-1000</p>
+        <p>Correo: contacto&#64;vetconnect.com</p>
+        <p>Horario: Lun - Sáb, 9:00 a 18:00 hrs</p>
+      </address>
+    </div>
+
+  </div>
+
+  <div class="pie__barra">
+    <p>&copy; {{ anio }} VetConnect. Todos los derechos reservados.</p>
+    <p>
+      <a routerLink="/terminos">Términos y condiciones</a>
+    </p>
+  </div>
+</footer>

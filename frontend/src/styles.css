@@ -1,0 +1,39 @@
+/* ============================================================================
+   VETCONNECT - Estilos base (reset + tipografía)
+   Se cargan antes del diseño principal para normalizar el documento.
+   ============================================================================ */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: 'Open Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  color: var(--color-texto, #34495e);
+  background: var(--color-blanco, #ffffff);
+  line-height: 1.6;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: var(--color-verde, #17a88f);
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Nunito', 'Open Sans', sans-serif;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+p {
+  margin: 0 0 0.8rem 0;
+}

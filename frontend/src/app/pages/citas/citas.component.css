@@ -1,0 +1,192 @@
+/* Estilos del formulario de solicitud de citas. */
+
+.contenedor--estrecho {
+  max-width: 820px;
+  margin: 0 auto;
+}
+
+.formulario {
+  display: grid;
+  gap: 1.5rem;
+}
+
+/* Agrupación de secciones del formulario */
+fieldset {
+  border: 1px solid var(--color-verde-claro, #d8f3ee);
+  border-radius: 16px;
+  padding: 1.4rem 1.5rem;
+  background: var(--color-blanco, #ffffff);
+  box-shadow: 0 4px 14px rgba(14, 59, 90, 0.05);
+}
+
+legend {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--color-azul, #0e3b5a);
+  padding: 0 0.6rem;
+}
+
+/* Rejilla de dos columnas para los campos */
+.formulario > fieldset {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.campo label {
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--color-azul, #0e3b5a);
+}
+
+.campo__etiqueta {
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--color-azul, #0e3b5a);
+}
+
+.campo input[type='text'],
+.campo input[type='email'],
+.campo input[type='tel'],
+.campo input[type='number'],
+.campo input[type='date'],
+.campo input[type='time'],
+.campo select,
+.campo textarea {
+  width: 100%;
+  padding: 0.65rem 0.85rem;
+  border: 1.5px solid #cfe4df;
+  border-radius: 10px;
+  background: #f8fcfb;
+  font-family: inherit;
+  font-size: 0.95rem;
+  color: var(--color-texto, #34495e);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.campo input:focus,
+.campo select:focus,
+.campo textarea:focus {
+  outline: none;
+  border-color: var(--color-verde, #17a88f);
+  box-shadow: 0 0 0 3px rgba(23, 168, 143, 0.15);
+}
+
+.campo input:invalid:not(:placeholder-shown) {
+  border-color: #e74c3c;
+}
+
+.campo textarea {
+  resize: vertical;
+  min-height: 90px;
+}
+
+/* Campos que ocupan las dos columnas */
+.campo--terminos {
+  grid-column: 1 / -1;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 0.5rem;
+  background: var(--color-verde-claro, #d8f3ee);
+  border-radius: 12px;
+  padding: 0.9rem 1rem;
+}
+
+.campo--terminos label {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  font-weight: 600;
+  color: var(--color-texto, #34495e);
+  font-size: 0.92rem;
+}
+
+.campo--terminos input[type='checkbox'] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--color-verde, #17a88f);
+  margin-top: 0.1rem;
+}
+
+/* Opciones de radio */
+.opciones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.opciones label {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-weight: 600;
+  font-size: 0.92rem;
+  color: var(--color-texto, #34495e);
+}
+
+.opciones input[type='radio'] {
+  width: 17px;
+  height: 17px;
+  accent-color: var(--color-verde, #17a88f);
+}
+
+/* Aviso de éxito */
+.aviso-exito {
+  background: #e8f8f2;
+  border: 1.5px solid var(--color-verde, #17a88f);
+  border-left-width: 6px;
+  border-radius: 14px;
+  padding: 1.2rem 1.4rem;
+  margin-bottom: 1.5rem;
+}
+
+.aviso-exito h2 {
+  color: var(--color-verde, #17a88f);
+  font-size: 1.2rem;
+  margin: 0 0 0.4rem 0;
+}
+
+.aviso-exito p {
+  margin: 0;
+  color: var(--color-texto, #34495e);
+}
+
+/* Botones del formulario */
+.formulario__acciones {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.formulario__acciones .boton {
+  min-width: 180px;
+}
+
+.boton:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.obligatorio {
+  color: #e74c3c;
+  font-weight: 800;
+}
+
+/* ------------------------- Vista móvil -------------------------------- */
+@media (max-width: 640px) {
+  .formulario > fieldset {
+    grid-template-columns: 1fr;
+  }
+
+  .formulario__acciones .boton {
+    min-width: 0;
+    width: 100%;
+  }
+}

@@ -1,0 +1,11 @@
+<!-- Tarjeta reutilizable de servicio. Usa <article> (requisito semántico HTML5). -->
+<article class="tarjeta-servicio">
+  <div class="tarjeta-servicio__icono" aria-hidden="true">+</div>
+  <h3 class="tarjeta-servicio__nombre">{{ servicio.nombre }}</h3>
+  <p class="tarjeta-servicio__descripcion">{{ servicio.descripcion }}</p>
+  <ul class="tarjeta-servicio__datos">
+    <li>Duración aproximada: {{ servicio.duracion_min }} min</li>
+    <li *ngIf="servicio.precio_base">Costo base: ${{ servicio.precio_base.toFixed(2) }} MXN</li>
+  </ul>
+  <a class="boton boton--secundario boton--sm" routerLink="/citas">Agendar</a>
+</article>

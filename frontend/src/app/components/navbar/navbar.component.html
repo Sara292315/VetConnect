@@ -1,0 +1,48 @@
+<!-- REQUISITO HTML5: <nav> con enlaces y elemento semántico de navegación. -->
+<header class="navbar">
+  <div class="navbar__contenedor">
+
+    <!-- Logo / identidad visual de VetConnect -->
+    <a class="navbar__marca" routerLink="/" (click)="cerrarMenu()">
+      <img
+        src="assets/images/logo.svg"
+        alt="Logo de VetConnect: huella de mascota con símbolo de salud"
+        class="navbar__logo"
+      />
+      <span class="navbar__marca-texto">Vet<span>Connect</span></span>
+    </a>
+
+    <!-- Botón de menú móvil (hamburguesa), visible solo en pantallas pequeñas -->
+    <button
+      type="button"
+      class="navbar__hamburguesa"
+      [attr.aria-label]="menuAbierto ? 'Cerrar menú' : 'Abrir menú'"
+      (click)="alternarMenu()"
+    >
+      <span></span><span></span><span></span>
+    </button>
+
+    <!-- Menú de navegación principal -->
+    <nav class="navbar__menu" [class.navbar__menu--abierto]="menuAbierto">
+      <ul>
+        <li *ngFor="let enlace of enlaces">
+          <a
+            routerLink="{{ enlace.ruta }}"
+            routerLinkActive="navbar__enlace--activo"
+            [routerLinkActiveOptions]="{ exact: enlace.ruta === '/' }"
+            (click)="cerrarMenu()"
+          >{{ enlace.etiqueta }}</a>
+        </li>
+        <!-- Acción destacada: solicitar una cita -->
+        <li class="navbar__item-accion">
+          <a
+            class="boton boton--primario navbar__boton"
+            routerLink="/citas"
+            (click)="cerrarMenu()"
+          >Solicitar cita</a>
+        </li>
+      </ul>
+    </nav>
+
+  </div>
+</header>

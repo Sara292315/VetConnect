@@ -1,0 +1,153 @@
+<!-- ==========================================================================
+     REQUISITOS HTML5 DEMOSTRADOS:
+     - Tabla <table> con <thead>, <tbody> y <caption>
+     - Listas desordenadas <ul>
+     - Imágenes con alt
+     - Secciones semánticas: <section>
+     ========================================================================== -->
+
+<section class="seccion seccion--cabecera-pagina">
+  <div class="contenedor">
+    <h1>Expediente de mi mascota</h1>
+    <p class="seccion__intro">
+      Consulta la información general, el historial de consultas y las próximas
+      vacunas de tus mascotas.
+    </p>
+
+    <div class="aviso-datos-ejemplo">
+      <strong>Nota:</strong> los datos que se muestran son de ejemplo (ficticios).
+      En la primera versión no se guardan datos reales de pacientes.
+    </div>
+  </div>
+</section>
+
+<section class="seccion">
+  <div class="contenedor">
+
+    <!-- Selector de mascota -->
+    <div class="selector-mascota">
+      <label for="mascota">Selecciona una mascota</label>
+      <select id="mascota" [(ngModel)]="mascotaId" (change)="seleccionarMascota()">
+        <option *ngFor="let mascota of mascotas" [ngValue]="mascota.id">
+          {{ mascota.nombre }} ({{ mascota.especie }})
+        </option>
+      </select>
+    </div>
+
+    <!-- Mensaje si no hay expediente -->
+    <div class="aviso-vacio" *ngIf="sinExpediente">
+      <p>La mascota seleccionada aún no tiene expediente registrado.</p>
+    </div>
+
+    <!-- ==================== EXPEDIENTE ==================== -->
+    <ng-container *ngIf="expediente && expediente.mascota as mascota">
+
+      <!-- Ficha de la mascota -->
+      <article class="ficha-mascota">
+        <img
+          [src]="mascota.especie === 'gato' ? 'assets/images/gato.svg' : 'assets/images/perro.svg'"
+          [alt]="'Ilustración de ' + mascota.nombre + ', mascota de VetConnect'"
+          class="ficha-mascota__imagen"
+        />
+        <div class="ficha-mascota__datos">
+          <h2>{{ mascota.nombre }}</h2>
+          <p>
+            {{ mascota.raza || 'Raza desconocida' }} &middot;
+            {{ mascota.especie }} &middot;
+            {{ mascota.edad_anios }} año(s) &middot;
+            Sexo: {{ mascota.sexo }}
+          </p>
+        </div>
+      </article>
+
+      <!-- Tabla principal del expediente -->
+      <h2 class="mt-2">Tabla del expediente</h2>
+      <div class="tabla-contenedor">
+        <table>
+          <caption>Resumen del expediente clínico de {{ mascota.nombre }}</caption>
+          <thead>
+            <tr>
+              <th>Campo</th>
+              <th>Información</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Nombre</strong></td>
+              <td>{{ mascota.nombre }}</td>
+            </tr>
+            <tr>
+              <td><strong>Especie</strong></td>
+              <td>{{ mascota.especie }}</td>
+            </tr>
+            <tr>
+              <td><strong>Raza</strong></td>
+              <td>{{ mascota.raza || '—' }}</td>
+            </tr>
+            <tr>
+              <td><strong>Edad</strong></td>
+              <td>{{ mascota.edad_anios }} años</td>
+            </tr>
+            <tr>
+              <td><strong>Sexo</strong></td>
+              <td>{{ mascota.sexo }}</td>
+            </tr>
+            <tr>
+              <td><strong>Última consulta</strong></td>
+              <td>{{ expediente.ultima_consulta || '—' }}</td>
+            </tr>
+            <tr>
+              <td><strong>Diagnóstico</strong></td>
+              <td>{{ expediente.diagnostico_actual || '—' }}</td>
+            </tr>
+            <tr>
+              <td><strong>Vacunas</strong></td>
+              <td>{{ expediente.vacunas || '—' }}</td>
+            </tr>
+            <tr>
+              <td><strong>Próxima cita</strong></td>
+              <td>{{ expediente.proxima_cita || '—' }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Próximas vacunas -->
+      <div class="rejilla rejilla--2 info-adicional">
+        <article class="caja-info">
+          <h3>Próximas vacunas</h3>
+          <p>
+            {{ expediente.proxima_vacuna || 'Sin vacunas programadas.' }}
+          </p>
+        </article>
+
+        <article class="caja-info">
+          <h3>Alergias registradas</h3>
+          <p>
+            {{ expediente.alergias || 'Sin alergias registradas.' }}
+          </p>
+        </article>
+      </div>
+
+      <!-- Historial de consultas -->
+      <h2 class="mt-2">Historial de consultas</h2>
+
+      <div class="aviso-vacio" *ngIf="!expediente.historial_consultas || expediente.historial_consultas.length === 0">
+        <p>Este paciente aún no tiene consultas registradas.</p>
+      </div>
+
+      <!-- Lista de consultas previas -->
+      <ul class="lista-consultas">
+        <li *ngFor="let consulta of expediente.historial_consultas">
+          <h3>{{ consulta.motivo }}</h3>
+          <p><strong>Fecha:</strong> {{ consulta.fecha }}</p>
+          <p><strong>Diagnóstico:</strong> {{ consulta.diagnostico || '—' }}</p>
+          <p><strong>Tratamiento:</strong> {{ consulta.tratamiento || '—' }}</p>
+          <p *ngIf="consulta.receta"><strong>Receta:</strong> {{ consulta.receta }}</p>
+        </li>
+      </ul>
+
+    </ng-container>
+
+  </div>
+</section>

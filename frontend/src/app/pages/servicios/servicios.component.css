@@ -1,0 +1,59 @@
+/* Estilos de la página de servicios. */
+
+.lista-servicios {
+  list-style: none;
+  padding: 0;
+  margin: 0.5rem 0 0 0;
+  display: grid;
+  gap: 0.7rem;
+}
+
+.lista-servicios li {
+  background: var(--color-blanco, #ffffff);
+  border-left: 4px solid var(--color-verde, #17a88f);
+  border-radius: 8px;
+  padding: 0.8rem 1rem;
+  box-shadow: 0 2px 8px rgba(14, 59, 90, 0.05);
+  color: var(--color-texto, #34495e);
+}
+
+.lista-servicios strong {
+  color: var(--color-azul, #0e3b5a);
+}
+
+/* Contenedor de la tabla (scroll horizontal en móvil) */
+.tabla-contenedor {
+  overflow-x: auto;
+  margin-top: 0.5rem;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--color-blanco, #ffffff);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 14px rgba(14, 59, 90, 0.06);
+}
+
+thead th {
+  background: var(--color-azul, #0e3b5a);
+  color: #ffffff;
+  text-align: left;
+  padding: 0.8rem 1rem;
+  font-size: 0.9rem;
+}
+
+tbody td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--color-verde-claro, #d8f3ee);
+  font-size: 0.93rem;
+}
+
+tbody tr:nth-child(even) {
+  background: #f4fbf9;
+}
+
+tbody tr:last-child td {
+  border-bottom: 0;
+}

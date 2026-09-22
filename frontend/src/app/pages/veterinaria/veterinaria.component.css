@@ -1,0 +1,91 @@
+/* Estilos de la página de veterinaria. */
+
+.rejilla--centrada {
+  align-items: center;
+}
+
+.imagen-contenedor {
+  margin: 0;
+}
+
+.imagen-contenedor img {
+  width: 100%;
+  max-width: 460px;
+  border-radius: 16px;
+  display: block;
+  margin: 0 auto;
+}
+
+.tarjeta-equipo {
+  background: var(--color-blanco, #ffffff);
+  border: 1px solid var(--color-verde-claro, #d8f3ee);
+  border-radius: 16px;
+  padding: 1.5rem;
+  text-align: center;
+  box-shadow: 0 4px 14px rgba(14, 59, 90, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.tarjeta-equipo:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px rgba(14, 59, 90, 0.1);
+}
+
+.tarjeta-equipo__imagen {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--color-verde-claro, #d8f3ee);
+  margin-bottom: 0.8rem;
+}
+
+.tarjeta-equipo h3 {
+  color: var(--color-azul, #0e3b5a);
+  margin: 0 0 0.3rem 0;
+}
+
+.tarjeta-equipo__especialidad {
+  color: var(--color-verde, #17a88f);
+  font-weight: 700;
+  font-size: 0.9rem;
+  margin: 0 0 0.4rem 0;
+}
+
+.tarjeta-equipo__cedula {
+  color: #5d7d95;
+  font-size: 0.85rem;
+  margin: 0;
+}
+
+.lista-horarios {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  line-height: 2;
+  color: var(--color-texto, #34495e);
+}
+
+.lista-horarios strong {
+  color: var(--color-azul, #0e3b5a);
+}
+
+address {
+  font-style: normal;
+  color: var(--color-texto, #34495e);
+  line-height: 1.7;
+  background: var(--color-verde-claro, #d8f3ee);
+  border-radius: 14px;
+  padding: 1rem 1.2rem;
+}
+
+address p {
+  margin: 0;
+}
+
+/* ------------------------- Vista móvil -------------------------------- */
+@media (max-width: 760px) {
+  .rejilla--2 {
+    grid-template-columns: 1fr;
+  }
+}

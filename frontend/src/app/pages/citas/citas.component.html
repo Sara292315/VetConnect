@@ -1,0 +1,259 @@
+<!-- ==========================================================================
+     REQUISITOS HTML5 DEMOSTRADOS EN ESTE FORMULARIO:
+     - Controles: text, email, tel, number, date, time, select, radio,
+       checkbox, textarea, submit y reset
+     - Atributos: required, placeholder, min, max, id, name, for
+     - Agrupación con <fieldset> y <legend>
+     - Etiquetas <label for="..."> vinculadas a cada control
+     ========================================================================== -->
+
+<section class="seccion seccion--cabecera-pagina">
+  <div class="contenedor">
+    <h1>Solicitar una cita</h1>
+    <p class="seccion__intro">
+      Completa el formulario y nuestro equipo se pondrá en contacto para confirmar
+      la disponibilidad. Los campos marcados con <span class="obligatorio">*</span>
+      son obligatorios.
+    </p>
+  </div>
+</section>
+
+<section class="seccion">
+  <div class="contenedor contenedor--estrecho">
+
+    <!-- Confirmación de cita solicitada -->
+    <div class="aviso-exito" *ngIf="citaConfirmada">
+      <h2>Tu cita ha sido solicitada</h2>
+      <p>
+        Registramos la solicitud para el día <strong>{{ citaConfirmada.fecha }}</strong>
+        a las <strong>{{ citaConfirmada.hora }}</strong> hrs. Recibirás la confirmación
+        por correo o teléfono.
+      </p>
+    </div>
+
+    <form
+      #formularioCita="ngForm"
+      (ngSubmit)="enviarSolicitud(formularioCita)"
+      class="formulario"
+    >
+
+      <!-- ----------- DATOS DEL PROPIETARIO ----------- -->
+      <fieldset>
+        <legend>Datos del propietario</legend>
+
+        <!-- text: nombre completo -->
+        <div class="campo">
+          <label for="nombre_propietario">Nombre completo <span class="obligatorio">*</span></label>
+          <input
+            type="text"
+            id="nombre_propietario"
+            name="nombre_propietario"
+            [(ngModel)]="modelo.nombre_propietario"
+            placeholder="Ej. María González"
+            required
+          />
+        </div>
+
+        <!-- email: correo electrónico -->
+        <div class="campo">
+          <label for="correo">Correo electrónico <span class="obligatorio">*</span></label>
+          <input
+            type="email"
+            id="correo"
+            name="correo"
+            [(ngModel)]="modelo.correo"
+            placeholder="ejemplo@correo.com"
+            required
+          />
+        </div>
+
+        <!-- tel: teléfono -->
+        <div class="campo">
+          <label for="telefono">Teléfono <span class="obligatorio">*</span></label>
+          <input
+            type="tel"
+            id="telefono"
+            name="telefono"
+            [(ngModel)]="modelo.telefono"
+            placeholder="(555) 000-0000"
+            pattern="[0-9()\s\-+]{8,15}"
+            required
+          />
+        </div>
+      </fieldset>
+
+      <!-- ----------- DATOS DE LA MASCOTA ----------- -->
+      <fieldset>
+        <legend>Datos de la mascota</legend>
+
+        <!-- text: nombre de la mascota -->
+        <div class="campo">
+          <label for="nombre_mascota">Nombre de la mascota <span class="obligatorio">*</span></label>
+          <input
+            type="text"
+            id="nombre_mascota"
+            name="nombre_mascota"
+            [(ngModel)]="modelo.nombre_mascota"
+            placeholder="Ej. Rex"
+            required
+          />
+        </div>
+
+        <!-- select: especie -->
+        <div class="campo">
+          <label for="especie">Especie <span class="obligatorio">*</span></label>
+          <select id="especie" name="especie" [(ngModel)]="modelo.especie" required>
+            <option value="perro">Perro</option>
+            <option value="gato">Gato</option>
+            <option value="ave">Ave</option>
+            <option value="roedor">Roedor</option>
+            <option value="otro">Otro</option>
+          </select>
+        </div>
+
+        <!-- text: raza -->
+        <div class="campo">
+          <label for="raza">Raza</label>
+          <input
+            type="text"
+            id="raza"
+            name="raza"
+            [(ngModel)]="modelo.raza"
+            placeholder="Ej. Labrador Retriever"
+          />
+        </div>
+
+        <!-- number: edad con min y max -->
+        <div class="campo">
+          <label for="edad">Edad (años)</label>
+          <input
+            type="number"
+            id="edad"
+            name="edad"
+            [(ngModel)]="modelo.edad"
+            placeholder="Ej. 4"
+            min="0"
+            max="50"
+            step="0.5"
+          />
+        </div>
+
+        <!-- radio: sexo -->
+        <div class="campo">
+          <span class="campo__etiqueta">Sexo <span class="obligatorio">*</span></span>
+          <div class="opciones">
+            <label for="sexo_macho">
+              <input type="radio" id="sexo_macho" name="sexo" value="macho" [(ngModel)]="modelo.sexo" required />
+              Macho
+            </label>
+            <label for="sexo_hembra">
+              <input type="radio" id="sexo_hembra" name="sexo" value="hembra" [(ngModel)]="modelo.sexo" required />
+              Hembra
+            </label>
+            <label for="sexo_desconocido">
+              <input type="radio" id="sexo_desconocido" name="sexo" value="desconocido" [(ngModel)]="modelo.sexo" required />
+              Desconocido
+            </label>
+          </div>
+        </div>
+      </fieldset>
+
+      <!-- ----------- DATOS DE LA CITA ----------- -->
+      <fieldset>
+        <legend>Datos de la cita</legend>
+
+        <!-- select: servicio veterinario -->
+        <div class="campo">
+          <label for="servicio_id">Servicio veterinario <span class="obligatorio">*</span></label>
+          <select id="servicio_id" name="servicio_id" [(ngModel)]="modelo.servicio_id" required>
+            <option value="" disabled selected>Selecciona un servicio…</option>
+            <option *ngFor="let servicio of servicios" [ngValue]="servicio.id">
+              {{ servicio.nombre }}
+            </option>
+          </select>
+        </div>
+
+        <!-- date: fecha con valor mínimo = hoy -->
+        <div class="campo">
+          <label for="fecha">Fecha de la cita <span class="obligatorio">*</span></label>
+          <input
+            type="date"
+            id="fecha"
+            name="fecha"
+            [(ngModel)]="modelo.fecha"
+            [min]="fechaMinima"
+            required
+          />
+        </div>
+
+        <!-- time: hora -->
+        <div class="campo">
+          <label for="hora">Hora <span class="obligatorio">*</span></label>
+          <input
+            type="time"
+            id="hora"
+            name="hora"
+            [(ngModel)]="modelo.hora"
+            min="09:00"
+            max="18:00"
+            required
+          />
+        </div>
+
+        <!-- text: motivo de consulta -->
+        <div class="campo">
+          <label for="motivo">Motivo de la consulta <span class="obligatorio">*</span></label>
+          <input
+            type="text"
+            id="motivo"
+            name="motivo"
+            [(ngModel)]="modelo.motivo"
+            placeholder="Ej. Vacunación anual"
+            maxlength="255"
+            required
+          />
+        </div>
+
+        <!-- textarea: observaciones -->
+        <div class="campo">
+          <label for="observaciones">Observaciones</label>
+          <textarea
+            id="observaciones"
+            name="observaciones"
+            [(ngModel)]="modelo.observaciones"
+            rows="4"
+            maxlength="1000"
+            placeholder="Indica cualquier detalle relevante de tu mascota…"
+          ></textarea>
+        </div>
+      </fieldset>
+
+      <!-- checkbox: aceptación de términos -->
+      <div class="campo campo--terminos">
+        <label for="acepta_terminos">
+          <input
+            type="checkbox"
+            id="acepta_terminos"
+            name="acepta_terminos"
+            [(ngModel)]="modelo.acepta_terminos"
+            required
+          />
+          Acepto los
+          <a routerLink="/terminos">términos y condiciones</a>
+          <span class="obligatorio">*</span>
+        </label>
+      </div>
+
+      <!-- Botones: enviar y limpiar -->
+      <div class="formulario__acciones">
+        <button type="submit" class="boton boton--primario" [disabled]="!modelo.acepta_terminos">
+          Enviar solicitud
+        </button>
+        <button type="reset" class="boton boton--neutral" (click)="citaConfirmada = null">
+          Limpiar formulario
+        </button>
+      </div>
+
+    </form>
+  </div>
+</section>

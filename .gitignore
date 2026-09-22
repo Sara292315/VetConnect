@@ -1,0 +1,23 @@
+# Node / Angular
+node_modules/
+dist/
+*.log
+
+# PHP / Laravel
+/vendor/
+composer.lock
+.env
+.env.*
+!.env.example
+/storage/*.key
+/storage/framework/cache/*
+/storage/framework/sessions/*
+/storage/framework/views/*
+/public/build/*
+
+# Sistema
+Thumbs.db
+.DS_Store
+.idea/
+.vscode/*
+!.vscode/extensions.json

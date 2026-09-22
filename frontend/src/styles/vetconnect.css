@@ -1,0 +1,179 @@
+/* ============================================================================
+   VETCONNECT - Sistema de diseño principal (CSS3)
+   Identidad visual: colores azul (confianza) y verde (salud/naturaleza).
+   NO se utiliza Bootstrap; los estilos son propios de la plataforma.
+   ============================================================================ */
+
+/* ---------------------------------------------------------------------------
+   1. Variables de diseño (CSS custom properties)
+--------------------------------------------------------------------------- */
+:root {
+  /* Paleta de colores */
+  --color-azul:      #0e3b5a;   /* color principal (fondo, encabezados)  */
+  --color-azul-claro:#1d5576;
+  --color-verde:     #17a88f;   /* color de acento (salud)               */
+  --color-verde-claro: #d8f3ee;
+  --color-verde-oscuro: #0f7d6b;
+  --color-texto:     #34495e;
+  --color-blanco:    #ffffff;
+  --color-gris:      #f4f6f8;
+
+  /* Tipografías */
+  --fuente-titulos: 'Nunito', 'Open Sans', sans-serif;
+  --fuente-texto:   'Open Sans', system-ui, sans-serif;
+
+  /* Espaciados y radios */
+  --radio:       14px;
+  --sombra:      0 4px 14px rgba(14, 59, 90, 0.08);
+  --contenedor:  1200px;
+}
+
+/* ---------------------------------------------------------------------------
+   2. Utilidades de contenedor y rejilla
+--------------------------------------------------------------------------- */
+.contenedor {
+  max-width: var(--contenedor);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.rejilla {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.rejilla--2 { grid-template-columns: repeat(2, 1fr); }
+.rejilla--3 { grid-template-columns: repeat(3, 1fr); }
+
+.centrado  { text-align: center; }
+.mt-2      { margin-top: 2rem; }
+.mt-1      { margin-top: 1rem; }
+
+/* ---------------------------------------------------------------------------
+   3. Secciones
+--------------------------------------------------------------------------- */
+.seccion {
+  padding: 3rem 0;
+}
+
+.seccion--fondo {
+  background: var(--color-gris, #f4f6f8);
+  border-top: 1px solid #e6ecef;
+  border-bottom: 1px solid #e6ecef;
+}
+
+.seccion--cabecera-pagina {
+  background: linear-gradient(120deg, #0e3b5a 0%, #144b70 60%, #17a88f 130%);
+  color: #ffffff;
+  padding: 3.5rem 0;
+}
+
+.seccion--cabecera-pagina .seccion__titulo {
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+}
+
+.seccion__titulo {
+  color: var(--color-azul, #0e3b5a);
+  font-size: clamp(1.5rem, 3vw, 2.1rem);
+  margin: 0 0 0.5rem 0;
+}
+
+.seccion__intro {
+  color: var(--color-texto, #34495e);
+  max-width: 60ch;
+  margin-bottom: 1.8rem;
+}
+
+.seccion--cabecera-pagina .seccion__intro {
+  color: rgba(255, 255, 255, 0.92);
+}
+
+/* ---------------------------------------------------------------------------
+   4. Botones
+--------------------------------------------------------------------------- */
+.boton {
+  display: inline-block;
+  padding: 0.7rem 1.4rem;
+  border-radius: 999px;
+  border: 2px solid transparent;
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.1s ease;
+}
+
+.boton:hover {
+  transform: translateY(-1px);
+}
+
+.boton--primario {
+  background: var(--color-verde, #17a88f);
+  color: #ffffff;
+}
+
+.boton--primario:hover {
+  background: var(--color-verde-oscuro, #0f7d6b);
+}
+
+.boton--secundario {
+  background: var(--color-blanco, #ffffff);
+  color: var(--color-verde, #17a88f);
+  border-color: var(--color-verde, #17a88f);
+}
+
+.boton--secundario:hover {
+  background: var(--color-verde-claro, #d8f3ee);
+}
+
+.boton--claro {
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--color-azul, #0e3b5a);
+}
+
+.boton--claro:hover {
+  background: #ffffff;
+}
+
+.boton--neutral {
+  background: transparent;
+  color: var(--color-texto, #34495e);
+  border-color: #b9c8d3;
+}
+
+.boton--neutral:hover {
+  background: var(--color-gris, #f4f6f8);
+}
+
+.boton--sm {
+  padding: 0.45rem 1rem;
+  font-size: 0.85rem;
+}
+
+/* ---------------------------------------------------------------------------
+   5. Tablas globales
+--------------------------------------------------------------------------- */
+.tabla-contenedor {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+/* ---------------------------------------------------------------------------
+   6. Vista responsive básica (tableta y celular)
+--------------------------------------------------------------------------- */
+@media (max-width: 920px) {
+  .rejilla--3 { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 640px) {
+  .rejilla--2 { grid-template-columns: 1fr; }
+
+  .seccion { padding: 2.2rem 0; }
+}

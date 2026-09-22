@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 340" width="480" height="340">
+  <!-- Ilustración: clínica veterinaria VetConnect -->
+  <!-- Fondo -->
+  <rect width="480" height="340" rx="24" fill="#dff2ff"/>
+  <circle cx="60" cy="60" r="70" fill="#eafaf6" opacity="0.8"/>
+
+  <!-- Cielo / techo -->
+  <rect x="70" y="60" width="340" height="16" fill="#0e3b5a"/>
+
+  <!-- Cuerpo del edificio -->
+  <rect x="90" y="76" width="300" height="210" rx="6" fill="#ffffff" stroke="#cfd8dc" stroke-width="3"/>
+
+  <!-- Fachada -->
+  <rect x="90" y="76" width="300" height="60" fill="#17a88f"/>
+  <text x="240" y="112" text-anchor="middle" font-family="Nunito, sans-serif" font-size="26" font-weight="800" fill="#ffffff">VetConnect</text>
+
+  <!-- Entrada -->
+  <rect x="200" y="190" width="80" height="96" rx="8" fill="#0e3b5a"/>
+  <circle cx="216" cy="238" r="4" fill="#eafaf6"/>
+
+  <!-- Ventanas -->
+  <rect x="118" y="170" width="52" height="52" rx="6" fill="#d8f3ee" stroke="#cfd8dc" stroke-width="3"/>
+  <path d="M118 196h52M144 170v52" stroke="#cfd8dc" stroke-width="3"/>
+  <rect x="310" y="170" width="52" height="52" rx="6" fill="#d8f3ee" stroke="#cfd8dc" stroke-width="3"/>
+  <path d="M310 196h52M336 170v52" stroke="#cfd8dc" stroke-width="3"/>
+
+  <!-- Cruz de la clínica -->
+  <circle cx="240" cy="152" r="22" fill="#ffffff" stroke="#17a88f" stroke-width="3"/>
+  <path d="M237 144h6v6h6v6h-6v6h-6v-6h-6v-6h6z" fill="#17a88f"/>
+
+  <!-- Árbol -->
+  <rect x="416" y="220" width="12" height="66" fill="#8a6a4b"/>
+  <circle cx="422" cy="196" r="34" fill="#17a88f"/>
+
+  <!-- Arbusto -->
+  <rect x="70" y="280" width="12" height="40" fill="#8a6a4b"/>
+  <circle cx="76" cy="266" r="26" fill="#0f7d6b"/>
+
+  <!-- Piso -->
+  <rect x="0" y="286" width="480" height="54" fill="#b9c8d3"/>
+  <rect x="0" y="284" width="480" height="6" fill="#5d7d95"/>
+</svg>

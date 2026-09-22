@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" width="240" height="240">
+  <!-- Ilustración: perro (Labrador) de VetConnect -->
+  <!-- Fondo -->
+  <circle cx="120" cy="120" r="112" fill="#eafaf6"/>
+  <!-- Cuerpo -->
+  <ellipse cx="120" cy="170" rx="60" ry="42" fill="#caa06a"/>
+  <!-- Cabeza -->
+  <circle cx="120" cy="96" r="46" fill="#caa06a"/>
+  <!-- Hocico -->
+  <ellipse cx="120" cy="112" rx="26" ry="18" fill="#e3c795"/>
+  <!-- Nariz -->
+  <ellipse cx="120" cy="106" rx="8" ry="6" fill="#2c3e50"/>
+  <!-- Orejas -->
+  <ellipse cx="82" cy="88" rx="14" ry="24" fill="#b0894f" transform="rotate(20 82 88)"/>
+  <ellipse cx="158" cy="88" rx="14" ry="24" fill="#b0894f" transform="rotate(-20 158 88)"/>
+  <!-- Ojos -->
+  <circle cx="102" cy="90" r="7" fill="#2c3e50"/>
+  <circle cx="138" cy="90" r="7" fill="#2c3e50"/>
+  <circle cx="104" cy="88" r="2.5" fill="#ffffff"/>
+  <circle cx="140" cy="88" r="2.5" fill="#ffffff"/>
+  <!-- Lengua -->
+  <ellipse cx="128" cy="122" rx="6" ry="9" fill="#f4959e"/>
+  <!-- Collar -->
+  <path d="M86 124c18 12 50 12 68 0" fill="none" stroke="#17a88f" stroke-width="6"/>
+  <circle cx="120" cy="126" r="6" fill="#0e3b5a"/>
+  <!-- Patas -->
+  <ellipse cx="92" cy="206" rx="16" ry="12" fill="#caa06a"/>
+  <ellipse cx="148" cy="206" rx="16" ry="12" fill="#caa06a"/>
+  <!-- Cola -->
+  <path d="M170 172c22 -6 30 -26 24 -38" fill="none" stroke="#caa06a" stroke-width="14" stroke-linecap="round"/>
+</svg>

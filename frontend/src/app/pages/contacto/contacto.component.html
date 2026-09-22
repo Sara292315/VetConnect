@@ -1,0 +1,112 @@
+<!-- ==========================================================================
+     REQUISITOS HTML5 DEMOSTRADOS:
+     - Controles: text, email, textarea, submit y reset
+     - Atributos: required, placeholder, id, name, for
+     - Elemento <address>
+     - Secciones semánticas: <section>
+     ========================================================================== -->
+
+<section class="seccion seccion--cabecera-pagina">
+  <div class="contenedor">
+    <h1>Contacto</h1>
+    <p class="seccion__intro">
+      ¿Tienes dudas sobre nuestros servicios o tu mascota? Escríbenos o visita
+      nuestras instalaciones. Estamos para ayudarte.
+    </p>
+  </div>
+</section>
+
+<section class="seccion">
+  <div class="contenedor rejilla rejilla--2 rejilla--contacto">
+
+    <!-- Información de contacto -->
+    <article>
+      <h2>Información de contacto</h2>
+
+      <!-- <address>: información de contacto del establecimiento -->
+      <address class="tarjeta-contacto">
+        <p><strong>Dirección:</strong> {{ canales.direccion }}</p>
+        <p><strong>Teléfono:</strong> {{ canales.telefono }}</p>
+        <p><strong>WhatsApp:</strong> {{ canales.whatsapp }}</p>
+        <p><strong>Correo:</strong> {{ canales.correo }}</p>
+        <p><strong>Horario:</strong> {{ canales.horario }}</p>
+      </address>
+
+      <h3>Cómo llegar</h3>
+      <!-- Lista desordenada con indicaciones -->
+      <ul>
+        <li>El estacionamiento es gratuito para clientes.</li>
+        <li>Estamos a 5 minutos de la parada "Av. de los Animales".</li>
+        <li>Entrada accesible para sillas de ruedas y carriolas.</li>
+      </ul>
+    </article>
+
+    <!-- Formulario de contacto -->
+    <article>
+      <h2>Envíanos un mensaje</h2>
+
+      <div class="aviso-exito" *ngIf="enviado">
+        <p>¡Gracias! Tu mensaje fue enviado. Te responderemos a la brevedad.</p>
+      </div>
+
+      <form
+        #formularioContacto="ngForm"
+        (ngSubmit)="enviarContacto(formularioContacto)"
+        class="formulario-contacto"
+      >
+        <div class="campo">
+          <label for="ct_nombre">Nombre <span class="obligatorio">*</span></label>
+          <input
+            type="text"
+            id="ct_nombre"
+            name="nombre"
+            [(ngModel)]="mensaje.nombre"
+            placeholder="Tu nombre completo"
+            required
+          />
+        </div>
+
+        <div class="campo">
+          <label for="ct_correo">Correo electrónico <span class="obligatorio">*</span></label>
+          <input
+            type="email"
+            id="ct_correo"
+            name="correo"
+            [(ngModel)]="mensaje.correo"
+            placeholder="ejemplo@correo.com"
+            required
+          />
+        </div>
+
+        <div class="campo">
+          <label for="ct_asunto">Asunto</label>
+          <input
+            type="text"
+            id="ct_asunto"
+            name="asunto"
+            [(ngModel)]="mensaje.asunto"
+            placeholder="Ej. Consulta sobre vacunas"
+          />
+        </div>
+
+        <div class="campo">
+          <label for="ct_contenido">Mensaje <span class="obligatorio">*</span></label>
+          <textarea
+            id="ct_contenido"
+            name="contenido"
+            [(ngModel)]="mensaje.contenido"
+            rows="5"
+            placeholder="Escribe tu mensaje aquí…"
+            required
+          ></textarea>
+        </div>
+
+        <div class="formulario-contacto__acciones">
+          <button type="submit" class="boton boton--primario">Enviar mensaje</button>
+          <button type="reset" class="boton boton--neutral">Limpiar</button>
+        </div>
+      </form>
+    </article>
+
+  </div>
+</section>

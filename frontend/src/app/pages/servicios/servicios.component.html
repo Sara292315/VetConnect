@@ -1,0 +1,78 @@
+<!-- ==========================================================================
+     REQUISITOS HTML5 DEMOSTRADOS:
+     - Encabezados <h2>, <h3>
+     - Listas desordenadas <ul> con los servicios mínimos requeridos
+     - Tabla <table> para comparar duración y precio
+     - Secciones semánticas: <section> y <article>
+     ========================================================================== -->
+
+<section class="seccion seccion--cabecera-pagina">
+  <div class="contenedor">
+    <h1 class="seccion__titulo">Servicios veterinarios</h1>
+    <p class="seccion__intro">
+      Conoce el catálogo de servicios de VetConnect. Solicita tu cita en línea
+      para cualquiera de ellos.
+    </p>
+  </div>
+</section>
+
+<section class="seccion">
+  <div class="contenedor">
+
+    <!-- Lista de los servicios mínimos (requisito académico: <ul>) -->
+    <h2>Servicios disponibles</h2>
+    <ul class="lista-servicios">
+      <li><strong>Consulta general:</strong> revisión completa del estado de salud.</li>
+      <li><strong>Vacunación:</strong> esquemas de vacunación según especie y edad.</li>
+      <li><strong>Desparasitación:</strong> control de parásitos internos y externos.</li>
+      <li><strong>Consulta preventiva:</strong> chequeo y asesoría de cuidados.</li>
+      <li><strong>Control veterinario:</strong> seguimiento de tratamientos.</li>
+      <li><strong>Atención básica de mascotas:</strong> cuidados esenciales de higiene.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- Tarjetas del catálogo completo -->
+<section class="seccion seccion--fondo">
+  <div class="contenedor">
+    <h2>Catálogo detallado</h2>
+    <p class="seccion__intro">
+      Cada servicio tiene una duración estimada y un costo base de referencia.
+    </p>
+
+    <div class="rejilla rejilla--3">
+      <app-service-card *ngFor="let servicio of servicios" [servicio]="servicio"></app-service-card>
+    </div>
+  </div>
+</section>
+
+<!-- Tabla comparativa de servicios -->
+<section class="seccion">
+  <div class="contenedor">
+    <h2>Tabla comparativa de servicios</h2>
+    <div class="tabla-contenedor">
+      <table>
+        <thead>
+          <tr>
+            <th>Servicio</th>
+            <th>Duración</th>
+            <th>Costo base</th>
+            <th>Descripción</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let servicio of servicios">
+            <td>{{ servicio.nombre }}</td>
+            <td>{{ servicio.duracion_min }} min</td>
+            <td>{{ servicio.precio_base ? '$' + servicio.precio_base.toFixed(2) + ' MXN' : '—' }}</td>
+            <td>{{ servicio.descripcion }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="centrado mt-2">
+      <a routerLink="/citas" class="boton boton--primario">Solicitar una cita</a>
+    </p>
+  </div>
+</section>

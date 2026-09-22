@@ -1,0 +1,104 @@
+<!-- ==========================================================================
+     REQUISITOS HTML5 DEMOSTRADOS:
+     - Encabezados h2 y h3
+     - Imágenes con alt
+     - Listas desordenadas <ul>
+     - Secciones semánticas: <section> y <article>
+     - Dirección dentro de <address>
+     ========================================================================== -->
+
+<section class="seccion seccion--cabecera-pagina">
+  <div class="contenedor">
+    <h1>Nuestra veterinaria</h1>
+    <p class="seccion__intro">{{ veterinaria.lema }}</p>
+  </div>
+</section>
+
+<!-- Quiénes somos -->
+<section class="seccion">
+  <div class="contenedor rejilla rejilla--2 rejilla--centrada">
+    <figure class="imagen-contenedor">
+      <img
+        src="assets/images/clinica.svg"
+        alt="Instalaciones de la clínica veterinaria VetConnect con área de consulta"
+      />
+    </figure>
+
+    <article>
+      <h2>¿Quiénes somos?</h2>
+      <p>
+        VetConnect es una veterinaria local comprometida con la salud y el
+        bienestar de las mascotas de la comunidad. Ofrecemos atención médica de
+        calidad, vacunación, desparasitación, consultas preventivas y cuidados
+        básicos en un ambiente cálido y profesional.
+      </p>
+      <p>
+        Creemos que una buena atención comienza con una buena organización:
+        por eso pusimos en marcha VetConnect, para que los propietarios puedan
+        solicitar citas y consultar el expediente de sus mascotas fácilmente.
+      </p>
+    </article>
+  </div>
+</section>
+
+<!-- Equipo veterinario -->
+<section class="seccion seccion--fondo">
+  <div class="contenedor">
+    <h2>Nuestro equipo veterinario</h2>
+    <p class="seccion__intro">
+      Profesionales con experiencia y vocación de servicio.
+    </p>
+
+    <!-- Tarjetas del equipo -->
+    <div class="rejilla rejilla--3">
+      <article class="tarjeta-equipo" *ngFor="let veter of equipo">
+        <img
+          src="assets/images/veterinario.svg"
+          alt="Retrato ilustrativo del personal veterinario de VetConnect"
+          class="tarjeta-equipo__imagen"
+        />
+        <h3>{{ veter.nombre }}</h3>
+        <p class="tarjeta-equipo__especialidad">{{ veter.especialidad }}</p>
+        <p class="tarjeta-equipo__cedula">Cédula: {{ veter.cedula }}</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- Horarios y ubicación -->
+<section class="seccion">
+  <div class="contenedor rejilla rejilla--2">
+
+    <!-- Horarios de atención -->
+    <article>
+      <h2>Horarios de atención</h2>
+      <ul class="lista-horarios">
+        <li *ngFor="let horario of horarios">
+          {{ horario.dia }}: <strong>{{ horario.horas }}</strong>
+        </li>
+      </ul>
+      <p class="mt-2">
+        <a routerLink="/citas" class="boton boton--primario">Agenda una cita</a>
+      </p>
+    </article>
+
+    <!-- Ubicación y contacto -->
+    <article>
+      <h2>Ubicación y contacto</h2>
+      <address>
+        <p>{{ veterinaria.direccion }}</p>
+        <p>Teléfono: {{ veterinaria.telefono }}</p>
+        <p>Correo: {{ veterinaria.correo }}</p>
+        <p>Horario: {{ veterinaria.horario }}</p>
+      </address>
+
+      <h3>Transporte y llegada</h3>
+      <ul>
+        <li>Estacionamiento disponible para clientes.</li>
+        <li>A 5 minutos de la parada de autobús "Av. de los Animales".</li>
+        <li>Acceso accesible en planta baja.</li>
+      </ul>
+    </article>
+
+  </div>
+</section>

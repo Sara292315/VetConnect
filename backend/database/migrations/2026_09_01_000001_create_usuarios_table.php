@@ -1,0 +1,30 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+/**
+ * Crea la tabla: usuarios.
+ */
+return new class extends Migration
+{
+    public function up(): void
+    {
+        Schema::create('usuarios', function (Blueprint $table) {
+            $table->id();
+            $table->string('nombre_completo', 120);
+            $table->string('correo', 150)->unique();
+            $table->string('telefono', 20)->nullable();
+            $table->enum('tipo_usuario', ['propietario', 'veterinario', 'administrativo'])
+                ->default('propietario');
+            $table->string('contrasena_hash')->nullable();
+            $table->timestamps();
+        });
+    }
+
+    public function down(): void
+    {
+        Schema::dropIfExists('usuarios');
+    }
+};
