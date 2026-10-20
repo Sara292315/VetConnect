@@ -1,11 +1,11 @@
 :root{
-  --pine:#1F3D3A;
-  --pine-dark:#142826;
+  --pine:#4281A4;
+  --pine-dark:#48A9A6;
   --cream:#F7F3EA;
   --paper:#FCFAF4;
-  --gold:#C9A227;
-  --clay:#A8583F;
-  --ink:#22201B;
+  --gold:#f5f84e;
+  --clay:#C1666B;
+  --ink:#00072b;
   --line:#DAD3C1;
 }
 *{box-sizing:border-box;}
@@ -102,18 +102,18 @@ nav a:hover, nav a:focus{
   border-radius:10px 10px 0 0;
   box-shadow:0 18px 40px rgba(0,0,0,.25);
 }
-.btn{
-  display:inline-block;
-  background:var(--gold);
-  color:var(--pine-dark);
-  text-decoration:none;
-  font-weight:600;
-  padding:12px 22px;
-  border-radius:4px;
-  margin-top:10px;
-  border:none;
-  font-size:.98rem;
-  cursor:pointer;
+.btn {
+  display: inline-block;
+  background: var(--gold);
+  color: #000000;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 12px 22px;
+  border-radius: 4px;
+  margin-top: 10px;
+  border: none;
+  font-size: .98rem;
+  cursor: pointer;
 }
 .btn:hover{background:#dbb33c;}
 .btn-outline{
@@ -323,3 +323,55 @@ footer a{color:#E7E2D4;}
   .field.full{grid-column:auto;}
   .mascota-card{grid-template-columns:80px 1fr;}
 }
+
+/* ===== REDISEÑO MODERNO ===== */
+:root{
+  --glass:rgba(255,255,255,.55);
+  --glass-dark:rgba(20,40,38,.55);
+  --radius:20px;
+  --shadow:0 10px 30px rgba(20,40,38,.10);
+  --shadow-lg:0 24px 50px rgba(20,40,38,.20);
+}
+body{background:linear-gradient(180deg,#F7F3EA 0%,#EFE9D8 100%);}
+header{background:var(--glass-dark);backdrop-filter:blur(14px) saturate(140%);-webkit-backdrop-filter:blur(14px) saturate(140%);border-bottom:1px solid rgba(255,255,255,.08);}
+.hero{position:relative;overflow:hidden;background:radial-gradient(ellipse at 70% 30%,#2C5F55 0%,var(--pine) 45%,var(--pine-dark) 100%);}
+.hero-img img{border-radius:var(--radius) var(--radius) 0 0;}
+.btn{border-radius:999px;padding:13px 26px;transition:transform .25s,box-shadow .25s,background .25s;box-shadow:0 6px 18px rgba(201,162,39,.35);}
+.btn:hover{transform:translateY(-3px) scale(1.03);box-shadow:0 12px 26px rgba(201,162,39,.45);}
+.btn-outline{box-shadow:none;}
+main section{border-bottom:none;}
+form,table,.mascota-card{border-radius:var(--radius);box-shadow:var(--shadow);background:var(--glass);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.7);}
+input,select,textarea{border-radius:12px;transition:box-shadow .2s,border-color .2s;}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 4px rgba(201,162,39,.2);}
+
+/* Tarjetas de servicio: glass + brillo + tilt 3D */
+.servicio-card{
+  position:relative;overflow:hidden;border-radius:var(--radius);
+  background:var(--glass);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  border:1px solid rgba(255,255,255,.75);box-shadow:var(--shadow);
+  transition:box-shadow .3s;will-change:transform;
+}
+.servicio-card::after{
+  content:"";position:absolute;inset:0;pointer-events:none;opacity:0;transition:opacity .3s;
+  background:radial-gradient(circle at var(--mx,50%) var(--my,50%),rgba(255,255,255,.75),transparent 55%);
+}
+.servicio-card:hover{box-shadow:var(--shadow-lg);}
+.servicio-card:hover::after{opacity:1;}
+
+/* Huella del hero */
+.hero-paw{position:absolute;z-index:5;width:150px;top:14%;right:10%;pointer-events:none;filter:drop-shadow(0 18px 20px rgba(0,0,0,.4));}
+
+/* Preloader */
+#preloader{position:fixed;inset:0;z-index:9999;display:grid;place-items:center;background:radial-gradient(circle at 50% 40%,#2C5F55 0%,var(--pine-dark) 60%,#0B1615 100%);}
+.pl-center{text-align:center;width:min(380px,80vw);}
+.pl-logo{font-family:'Fraunces',serif;font-size:2.6rem;font-weight:600;color:var(--paper);margin-bottom:34px;}
+.pl-logo span{color:var(--gold);}
+.pl-track{position:relative;height:8px;border-radius:99px;background:rgba(255,255,255,.12);}
+.pl-fill{height:100%;width:0;border-radius:99px;background:linear-gradient(90deg,var(--clay),var(--gold));}
+.pl-paw{position:absolute;top:50%;left:0;font-size:1.6rem;transform:translate(-50%,-50%) rotate(90deg);}
+.pl-pct{margin-top:22px;color:#D9D3C1;font-size:.85rem;letter-spacing:.15em;}
+.pl-ball{position:absolute;right:8%;bottom:10%;width:64px;height:64px;border-radius:50%;
+  background:radial-gradient(circle at 32% 30%,#fff3b0,var(--gold) 45%,#8a6d10 100%);box-shadow:0 24px 30px rgba(0,0,0,.45),inset -6px -8px 14px rgba(0,0,0,.25);}
+
+@media (max-width:760px){.hero-paw{width:100px;top:6%;right:6%;}}
+@media (prefers-reduced-motion:reduce){.servicio-card,.btn{transition:none;}}
